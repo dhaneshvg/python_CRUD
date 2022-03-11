@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for product in products %}
+        <img src="{{ product.img.url }}" alt="">
+        <a href="{% url 'shop:retrive' product.id %}">{{ product.name }}</a>
+    {% endfor %}
+{% endblock %}
