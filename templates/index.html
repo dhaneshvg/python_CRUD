@@ -1,7 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% for product in products %}
-        <img src="{{ product.img.url }}" alt="">
-        <a href="{% url 'shop:retrive' product.id %}">{{ product.name }}</a>
-    {% endfor %}
+    <div class="container">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-4">
+                    <div class="container-fluid">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ product.img.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">{{ product.desc }}</p>
+                                <a href="{% url 'shop:retrive' product.id %}" class="btn btn-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
+

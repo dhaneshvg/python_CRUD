@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-    {{ prod_detail.name }}
-    {{ prod_detail.desc }}
-    {{ prod_detail.price }}
-    <img src="{{ prod_detail.img.url }}">
-    <a href="{% url 'shop:update' prod_detail.id %}">Update</a>
-    <a href="{% url 'shop:delete' prod_detail.id %}">Delete</a>
+    <div class="card" style="width: 18rem;">
+        <img src="{{ prod_detail.img.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ prod_detail.name }}</h5>
+            <p class="card-text">{{ prod_detail.desc }}</p>
+            <p class="card-text">{{ prod_detail.price }}</p>
+            <a class="btn btn-warning" href="{% url 'shop:update' prod_detail.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'shop:delete' prod_detail.id %}">Delete</a>
+        </div>
+    </div>
 {% endblock %}
